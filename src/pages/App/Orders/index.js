@@ -193,6 +193,11 @@ function Orders () {
           {order.zip_code}<br></br>
         </span>
 
+		<span>
+		<strong>Valor da Entrega:</strong> € 
+          {order.entrega}<br></br>
+        </span>
+
         <span>
 		<strong>Forma de Pagamento: </strong>
           {order.pagamento}<br></br>
