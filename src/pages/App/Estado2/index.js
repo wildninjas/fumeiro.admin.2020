@@ -186,7 +186,8 @@ function Estado2() {
 						return (
 						<ProductCard>
 							<h1><font color="red">LOJA DESATIVADA</font></h1>
-							<b>Última alteração:{product.updated_at}</b><br/><br/>
+							<b>Última alteração:</b>{product.updated_at}<br/>
+							<b>Mensagem de Horário Atual:</b>{product.estado}<br/><br/>
 						{/*<NoButton onClick={product.estado=1} />*/}
             			DESEJA ATIVAR A LOJA?<br/><br/> <YesButton onClick={() => handleUpdateProduct("0",product.id,product.open)}/>
 						{/*<p>Desativado</p>

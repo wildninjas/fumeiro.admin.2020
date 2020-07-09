@@ -92,18 +92,18 @@ function Orders () {
 
 
 	   
-  function imprimir() { 
+ // function imprimir() { 
 	 
-	var divContents = document.getElementById("CardPedidos").innerHTML; 
-	var a = window.open('', '', 'height=500, width=500'); 
-	a.document.write('<html><style>#select1 {display: none; }#button1{display: none; }</style>'); 
-	a.document.write(`<body ><br>`); 
-	a.document.write(divContents); 
-	a.document.write('</body></html>'); 
-	a.document.close(); 
-	a.print();
+//	var divContents = document.getElementById("CardPedidos").innerHTML; 
+//	var a = window.open('', '', 'height=500, width=500'); 
+//	a.document.write('<html><style>#select1 {display: none; }#button1{display: none; }</style>'); 
+//	a.document.write(`<body ><br>`); 
+//	a.document.write(divContents); 
+//	a.document.write('</body></html>'); 
+//	a.document.close(); 
+//	a.print();
 	  
-} 
+//} 
 
 
   function renderFilters () {
@@ -126,8 +126,22 @@ function Orders () {
 
 
   function renderOrder (order) {
+
+	function imprimir() { 
+	 
+		var divContents = document.getElementById(order.id).innerHTML; 
+		var a = window.open('', '', 'height=500, width=500'); 
+		a.document.write('<html><style>#select1 {display: none; }#button1{display: none; }</style>'); 
+		a.document.write(`<body ><br>`); 
+		a.document.write(divContents); 
+		a.document.write('</body></html>'); 
+		a.document.close(); 
+		a.print();
+		  
+	} 
+
     return filters[order.status] ? (
-      <OrderCard id="CardPedidos" key={order.id} status={order.status}>
+      <OrderCard id={order.id} key={order.id} status={order.status}>
 		  
 		
 		
@@ -168,6 +182,8 @@ function Orders () {
           {order.items.map(item => renderItem(item))}
         </ItemsContainer>
 
+		
+
          {/*Adicionando os dados que faltavam no painél do administrador*/}
 
         <span>
@@ -177,6 +193,10 @@ function Orders () {
 		<span>
 		<strong>Forma de Entrega: </strong>
           {order.type}<br></br>
+        </span>
+		<span>
+		<strong>Valor da Entrega:</strong> € 
+          {order.entrega}<br></br>
         </span>
         <span>
           <strong>Endereço: </strong>
@@ -191,11 +211,6 @@ function Orders () {
         <span>
           <strong>Código Postal: </strong>
           {order.zip_code}<br></br>
-        </span>
-
-		<span>
-		<strong>Valor da Entrega:</strong> € 
-          {order.entrega}<br></br>
         </span>
 
         <span>
