@@ -155,7 +155,9 @@ function Categories() {
     
           </CategoryInfo>
           <EditDeleteOptions>
-            <PlayCircleFilledIcon style={{ color: '#f15454', cursor: 'pointer' }} fontSize="large"  onClick={() => loadProducts(category.id)} />
+            <PlayCircleFilledIcon style={{ color: '#f15454', cursor: 'pointer' }} fontSize="large" onClick={() => loadProducts(category.id)} />
+			<EditButton onClick={() => setEditCategory(category)} />
+          <DeleteButton onClick={() => deleteToastNotification(category.id)} />
           </EditDeleteOptions>
   
         </CategoryCard>
@@ -168,7 +170,7 @@ function Categories() {
     <Container>
       <AddButton onClick={() => setModalOpen(true)} />
       {!!modalOpen && (
-        <ProductModal closeModal={() => setModalOpen(false)} product={editCategory} />
+        <CategoryModal closeModal={() => setModalOpen(false)} product={editCategory} />
       )}
       
       {categories.map(category => renderCategory(category))}

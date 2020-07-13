@@ -116,7 +116,9 @@ function Categories() {
               imageUrl={category.image ? category.image.url : NoImage}
             />
             <CategoryDetails>
+			
               <strong >{category.name}</strong>
+			  
               {/*<p>
                 <span>Tempo de preparo: </span>
                 {category.cook_time} mins
@@ -126,7 +128,7 @@ function Categories() {
     
           </CategoryInfo>
           <EditDeleteOptions>
-            <EditButton onClick={() => setEditCategory(category)} />
+		  <EditButton onClick={() => setEditCategory(category)} />
             <DeleteButton
               onClick={() => deleteToastNotification(category.id)}
             />
@@ -155,7 +157,9 @@ function Categories() {
     
           </CategoryInfo>
           <EditDeleteOptions>
-            <PlayCircleFilledIcon style={{ color: '#f15454', cursor: 'pointer' }} fontSize="large"  onClick={() => loadProducts(category.id)} />
+            <PlayCircleFilledIcon style={{ color: '#f15454', cursor: 'pointer' }} fontSize="large" onClick={() => loadProducts(category.id)} /><br />
+			<EditButton onClick={() => setEditCategory(category)} /><br/>
+          <DeleteButton onClick={() => deleteToastNotification(category.id)} /><br/>
           </EditDeleteOptions>
   
         </CategoryCard>
@@ -167,8 +171,8 @@ function Categories() {
   return (
     <Container>
       <AddButton onClick={() => setModalOpen(true)} />
-      {!!modalOpen && (
-        <ProductModal closeModal={() => setModalOpen(false)} product={editCategory} />
+      {!!modalOpen && ( 
+        <CategoryModal closeModal={() => setModalOpen(false)} category={editCategory} />
       )}
       
       {categories.map(category => renderCategory(category))}
