@@ -31,15 +31,15 @@ function SideBar ({ page, changePage }) {
        <RoomServiceIcon style={{ fontSize: 40 }} /><br/> Pedidos
       </li>
       <li
-        className={page === 'Categories' ? 'active' : ''}
-        onClick={() => changePage('Categories')} 
+        className={page === 'CategoriesOld' ? 'active' : ''}
+        onClick={() => changePage('CategoriesOld')} 
       >
-        <MenuBookIcon style={{ fontSize: 40 }} /><br/>Categorias
+        <MenuBookIcon style={{ fontSize: 40 }} /><br/> Editar Categorias
       </li>
      
       <li
-        className={page === 'Products' ? 'active' : ''}
-        onClick={() => changePage('Products')}
+        className={page === 'Categories' ? 'active' : ''}
+        onClick={() => changePage('Categories')}
       >
        <RestaurantIcon style={{ fontSize: 40 }} /><br/> Produtos
       </li>
